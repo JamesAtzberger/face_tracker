@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="Face-Tracking Camera Mount - James Atzberger">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="Instructions to build your own face-tracking mount.">
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="Raspberry Pi, 3d printing, machine learning, computer vision, AI">
+  <!-- TODO: List all authors -->
+  <meta name="author" content="James Atzberger">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+
+ 
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>DIY Face-Tracking Camera Mount - James Atzberger | Project</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "James Atzberger",
+    "url": "https://github.com/JamesAtzberger",
+    "sameAs": [
+      "https://github.com/JamesAtzberger"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Info.
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>Other Projects</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="https://github.com/JamesAtzberger" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>My GitHub Page</h5>
+            <p>Our other projects</p>
+            <span class="work-venue"> </span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">Face-Tracking Camera Mount: Instructions</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://github.com/JamesAtzberger" target="_blank">James Atzberger</a><sup>*</sup>,</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Project@Home</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+
+                  <span class="link-block">
+                    <a href="https://github.com/JamesAtzberger" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                    <span class="link-block">
+                      <a href="https://github.com/JamesAtzberger" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <center>
+      <video poster="" id="tree" autoplay controls muted loop width="60%" preload="metadata">
+        <source src="static/videos/camera_demo_top_05.mp4" type="video/mp4">
+      </video>
+      </center>
+      <h2 class="subtitle has-text-centered">
+       <b>Face-tracking and Camera Movements. </b>
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+We show how to build your very own face-tracking camera. We give instructions
+on how to design and 3d print the mount. We also show how to program the
+face-tracking. We list the type of camera, servo, and the other parts.  
+<br>
+<br> 
+We hope you enjoy! 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Teaser image-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+<center>
+     <img src="./static/images/gadget_01.jpg" style="width: 60%; height: auto;" alt="camera moving mount" loading="lazy"/>
+</center>
+      <h2 class="subtitle has-text-centered" style="width: 70%; margin: 0 auto;" >
+      <b> Face-Tracking Camera Mount: </b> 
+      Our camera mount that moves
+      by tracking your face to keep the camera pointed at you. 
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Instructions -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Instructions</h2>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop content">
+
+<ul>
+	<p style="margin-bottom: 0in"><font size="4" style="font-size: 15pt">
+<b>CAD / 3D Print Models and Assembling:</b></font></p>
+We provide the source .stl files for 3D printing the camera mount and how to
+put them together below.  All files can be downloaded from the
+<a href="https://github.com/JamesAtzberger"> project github.</a> <br>   
+<br>
+This shows the fully assembled mount. <br>
+<img src="./static/images/img_9e2099f7.png" name="image18.png" align="bottom" width="80%" border="0"/>
+<br>
+<b>Details</b>
+</p>
+	<ul>
+		<li><p style="margin-bottom: 0in"> We first create a base large
+		enough to comfortably store your raspberry pi. This includes a way
+		for the air to flow freely to help avoid overheating. 
+		</p></li>
+    <img src="./static/images/img_81c4eda6.png" name="image3.png" align="bottom" width="80%" border="0"/>
+		<li><p style="margin-bottom: 0in"> Next we make a cover to put
+		over the base with a servo mount on top. This will be used to pan
+		the camera left and right. This also includes a hole to connect the
+		servos and camera to the raspberry pi. </p></li>
+    <img src="./static/images/img_14a44aa6.png" name="image11.png" align="bottom" width="80%" border="0"/>
+		<li><p style="margin-bottom: 0in"> We create a servo mount for
+		tilting the camera up and down. We put a hole at the bottom (not
+		visible) so a servo horn can be used to attach the pan-servo. </p></li>
+</p></li>
+    <img src="./static/images/img_4452c30f.png" name="image11.png" align="bottom" width="80%" border="0"/>
+		<li><p style="margin-bottom: 0.11in"> We make a mount for the
+		camera to be attached to the tilting servo. This again uses a servo
+		horn. </p></li>
+    <img src="./static/images/img_3100f036.png" me="image13.png" align="bottom" width="80%" border="0"/>
+		<li><p style="margin-bottom: 0.11in"> These parts are assembled to obtain
+the full mount. 
+    </p></li>
+<img src="./static/images/img_64c2aff0.png" name="image15.png" align="bottom" width="80%" border="0"/>
+	</ul>
+</ul>
+<p style="margin-bottom: 0.11in"><br/>
+
+
+<ul>
+	<p style="margin-bottom: 0in"><font size="4" style="font-size: 15pt">
+    <b>Programming:</b></font></p>
+    We give a brief explaination of the implementation and how different parts of
+    the codes work. 
+	<ul>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_da7ee8ed.png" name="image12.png" align="bottom" width="167" height="63" border="0">
+</p>
+		<li><p style="margin-bottom: 0in">Library imports</p>
+		<ul>
+			<li><p style="margin-bottom: 0in"><b>OpenCv:</b> We will use open
+			cv to handle image processing and face detection.</p></li>
+			<li><p style="margin-bottom: 0in"><b>PigPio:</b> Used as a
+			substitute to the standard Pulse Width Modulation (PWM) library to
+			reduce servo jittering.</p></li>
+			<li><p style="margin-bottom: 0in"><b>OS:</b> Will be used for file
+			verification to avoid the program crashing during initialization.</p></li>
+		</ul>
+		</li><p style="margin-bottom: 0in"><img src="./static/images/img_4cf69213.png" name="image9.png" align="bottom" width="624" height="59" border="0">
+</p>
+		<li><p style="margin-bottom: 0in"> Check that `pigpio` was
+		successfully initialized</p>
+		<ul>
+			<li><p style="margin-bottom: 0in">Checks that the background
+			daemon called ‘pigpiod’ is running in order to control the
+			servos.</p></li>
+		</ul>
+		</li><p style="margin-bottom: 0in"><img src="./static/images/img_938bbf74.png" name="image4.png" align="bottom" width="411" height="107" border="0">
+</p>
+		<li><p style="margin-bottom: 0in"> Define and set the pan and
+		tilt servo’s GPIO numbers.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_ac7e4dcd.png" name="image11.png" align="bottom" width="320" height="159" border="0">
+</p>
+		<li><p style="margin-bottom: 0in"> Define variables to set the
+		pan and tilt servos starting positions, range of motions, and
+		increment values when rotating to center the detected  face.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_16319f68.png" name="image13.png" align="bottom" width="581" height="463" border="0">
+</p>
+		<li><p style="margin-bottom: 0in"> Define functions to control
+		the servo in increments towards the desired direction.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_628021eb.png" name="image8.png" align="bottom" width="513" height="42" border="0">
+</p>
+		<li><p style="margin-bottom: 0in"> Set servos to the starting
+		position before scanning for faces.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_ee1c410f.png" name="image7.png" align="bottom" width="624" height="75" border="0">
+</p>
+		<li><p style="margin-bottom: 0.11in"> Check and set the cascade
+		path and classifier to where the OpenCv library stores pre-trained
+		haar cascades.</p></li>
+</li>
+		<li><p style="margin-bottom: 0.11in"> Initialize the primary
+		camera used for detecting the faces (0 means its the only external
+		camera connected, you might need to choose a different number
+		depending on your devices.  For better performance, we down-scale
+		the resolution and compress the stream.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_d86be6c.png" name="image6.png" align="bottom" width="414" height="177" border="0"/>
+</p>
+		<li><p style="margin-bottom: 0.11in"> Grab the current stream of
+		the camera and throttle the facial detection to every 3 or more
+		frames to limit compute power and help with performance.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_1c833c57.png" name="image10.png" align="bottom" width="526" height="164" border="0"/>
+</p>
+		<li><p style="margin-bottom: 0.11in"> Pre-process the current
+		frame by calculating the center, dead-zones, and converting it to
+		gray-scale for higher performance and easier reading.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_89935d84.png" name="image2.png" align="bottom" width="466" height="116" border="0"/>
+</p>
+		<li><p style="margin-bottom: 0in"> Scan each grey-scale frame
+		for any faces and get their coordinates.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_f2ed1a3c.png" name="image14.png" align="bottom" width="624" height="351" border="0"/>
+</p>
+		<li><p style="margin-bottom: 0in"> Pan and tilt the camera to
+		center the face in the frame based on its current position.</p></li>
+		<p style="margin-bottom: 0in"><img src="./static/images/img_55c72878.png" name="image5.png" align="bottom" width="466" height="102" border="0"/>
+</p>
+		<li><p style="margin-bottom: 0.11in"> This safely shuts down the servos
+		and camera.</p></li>
+	</ul>
+
+</ul>
+</div>
+</section>
+<!-- End instructions -->
+
+
+  <section class="section" id="Downloads">
+    <div class="container is-max-desktop content">
+        <b>Download:</b><br>
+        All the codes and 3d printer files are available on our
+<a href="https://github.com/JamesAtzberger"> project github.</a> 
+      <br>
+      <br>
+		<p style="margin-bottom: 0.11in"> <b> Congratulations! </b> You completed the 
+      instructions for assembling and running the face-tracking camera mount.  I 
+      hope you enjoy! <br> <br> Please feel 
+      free to reach out with comments or see other projects on our 
+<a href="https://github.com/JamesAtzberger"> github pages.</a> 
+    </p>
+
+    </div>
+</section>
+
+
+  <section class="section" id="Downloads">
+    <div class="container is-max-desktop content">
+    </div>
+</section>
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a
+href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+target="_blank">Academic Project Page Template</a>.  For more information on this project see
+our <a href="https://github.com/JamesAtzberger"> GitHub pages.</a> </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
