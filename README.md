@@ -2,7 +2,7 @@
 
 A camera mount that uses servos to move its focus to track face locations. Project includes 3d print files, codes, and instructions for parts assembly.
 
-<p align="center">
+<p align="left">
 <img src="https://github.com/JamesAtzberger/face_tracker/blob/main/webpage_project/static/images/gadget_01.jpg" width="40%"> 
 </p>
 
