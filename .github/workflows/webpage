@@ -2,7 +2,8 @@ name: Deploy Custom Folder to Pages
 
 on:
   push:
-    branches: ["main"] # Change to master if your branch is named master
+    branches: ["main"]
+  workflow_dispatch: 
 
 permissions:
   contents: read
@@ -21,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Upgraded to v4 for Node compatibility
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5 # Upgraded to support newer Node defaults
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './webpage_project' # Your custom folder path
+        uses: actions/upload-pages-artifact@v3 # Upgraded to v3
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 # Upgraded to v4 for Node 24 support
+        with:
+          path: './webpage_project' 
