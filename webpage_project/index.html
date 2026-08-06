@@ -29,9 +29,10 @@
   <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+
   <!-- TODO: Replace with your paper title and authors -->
   <title>DIY Face-Tracking Camera Mount - James Atzberger | Project</title>
-	
+
   <!-- INITIALIZATION SCRIPT -->
   <script>
     let savedTheme = localStorage.getItem('theme');
@@ -42,7 +43,8 @@
     document.documentElement.setAttribute('data-theme', currentTheme);
 
   </script>
-	
+
+
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
@@ -92,12 +94,18 @@
 </head>
 <body>
 
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
+  <!-- Theme Change Button -->
+  <button class="theme-change" onclick="themeChangeToggle()" title="Theme Change" aria-label="Theme Change">
+    <span id="toggle-icon">.</span>
   </button>
-
+	
+  <!-- Scroll to Top Button -->                                                                                                                                                               
+  <!--                                                                                                                                                                                        
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">                                                                                     
+    <i class="fas fa-chevron-up"></i>                                                                                                                                                         
+  </button>                                                                                                                                                                                   
+  --> 
+	
   <!-- More Works Dropdown -->
   <div class="more-works-container">
     <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
