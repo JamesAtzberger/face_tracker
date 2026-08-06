@@ -8,10 +8,12 @@ function updateIcon(theme) {
 // Read what the head script already decided
 // wait safely for the HTML button to exist before updating the icon
 document.addEventListener('DOMContentLoaded', () => {  
-  if (typeof updateIcon === 'function') {    
+  if (typeof updateIcon === 'function') {  // set theme icon
 	currentTheme = document.documentElement.getAttribute('data-theme');
     updateIcon(currentTheme);
   }
+  const themeButton = document.querySelector('.theme-change');	
+  themeButton.classList.add('visible');  // set theme button to start visible
 });
 
 // More Works Dropdown Functionality
