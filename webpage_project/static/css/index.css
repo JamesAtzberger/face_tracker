@@ -7,6 +7,8 @@
   --text-primary: #1e293b;
   --text-secondary: #64748b;
   --text-light: #94a3b8;
+  --bulma-title-color: var(--primary-text);
+  --bulma-text-strong: var(--primary-text);
   --background-primary: #ffffff;
   --background-secondary: #f8fafc;
   --background-accent: #f1f5f9;
@@ -21,7 +23,71 @@
   --border-radius: 12px;
   --border-radius-lg: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --section-bg: #f5f5f5; /* Your light mode background */
+  --title-color: #363636; /* Your light mode title color */
+  --bg-abstract: #ebebeb; /* Your dark mode background */
+  --bg-footer: #ebebeb; /* Your dark mode background */
 }
+
+[data-theme="dark"] {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #64748b;
+  --accent-color: #0ea5e9;
+  --text-primary: #dedede;
+  --text-secondary: #c4c3c3;
+  --text-light: #c4c3c8;
+  --bulma-title-color: var(--primary-text);
+  --bulma-text-strong: var(--primary-text);
+  --background-primary: #1e1e1e;
+  --background-secondary: #2c2c2c;
+  --background-accent: #f4f4f4;
+  --border-color: #c2c8c0;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-subtle: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --section-bg: #1e1e1e; /* Your dark mode background */
+  --title-color: #dedede; /* Your dark mode title color */
+  --bg-abstract: #2b2b2b; /* Your dark mode background */
+  --bg-footer: #2b2b2b; /* Your dark mode background */
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+  color: var(--primary-text);
+}
+
+/* Apply variables to the hero section and titles */
+.hero {
+  background-color: var(--section-bg);
+}
+.title {
+  color: var(--title-color) !important; /* Force override over Bulma min defaults */
+}
+
+/* Apply the dynamic variables */
+.hero.abstract-section {
+  background-color: var(--bg-abstract) !important;
+}
+
+/* Ensure the title text adapts properly inside this specific section */
+.abstract-section .title {
+  color: var(--title-color) !important;
+}
+
+/* Apply the dynamic variables */
+.footer {
+  background-color: var(--bg-footer) !important;
+}
+
 
 /* Smooth scrolling for better UX */
 html {
@@ -38,7 +104,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 /* Modern Button Styles */
 .button {
   border-radius: var(--border-radius) !important;
@@ -52,7 +117,7 @@ body {
 .button.is-dark {
   background: var(--text-primary) !important;
   border: none !important;
-  color: white !important;
+  color: var(--background-secondary) !important;
   box-shadow: var(--shadow-md);
 }
 
@@ -423,8 +488,8 @@ code {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -452,13 +517,55 @@ code {
   visibility: visible;
 }
 
+/* Change Theme Button */
+.theme-change {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.4rem;
+  width: 40px;
+  height: 40px;
+  background: var(--text-primary);
+  color: var(--background-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+
+.theme-change:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+.theme-change.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 /* More Works Dropdown */
 .more-works-container {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 4rem;
   z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+}
+
+.more-works-container.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .more-works-btn {
@@ -477,6 +584,14 @@ code {
   align-items: center;
   gap: 0.5rem;
   font-family: 'Inter', sans-serif;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.more-works-btn.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .more-works-btn:hover {
