@@ -1,9 +1,7 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-const toggleBtn = document.getElementById('theme-change');
-const toggleIcon = document.getElementById('toggle-icon');
-
 function updateIcon(theme) {
+  const toggleIcon = document.getElementById('toggle-icon');
   toggleIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
 
