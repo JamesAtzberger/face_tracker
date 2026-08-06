@@ -8,8 +8,13 @@ function updateIcon(theme) {
 }
 
 // Read what the head script already decided
-currentTheme = document.documentElement.getAttribute('data-theme');
-updateIcon(currentTheme);
+// wait safely for the HTML button to exist before updating the icon
+document.addEventListener('DOMContentLoaded', () => {  
+  if (typeof updateIcon === 'function') {    
+	currentTheme = document.documentElement.getAttribute('data-theme');
+    updateIcon(currentTheme);
+  }
+});
 
 // More Works Dropdown Functionality
 function toggleMoreWorks() {
