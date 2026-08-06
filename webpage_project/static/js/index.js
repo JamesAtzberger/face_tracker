@@ -1,5 +1,16 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+const toggleBtn = document.getElementById('theme-change');
+const toggleIcon = document.getElementById('toggle-icon');
+
+function updateIcon(theme) {
+  toggleIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+// Read what the head script already decided
+currentTheme = document.documentElement.getAttribute('data-theme');
+updateIcon(currentTheme);
+
 // More Works Dropdown Functionality
 function toggleMoreWorks() {
     const dropdown = document.getElementById('moreWorksDropdown');
@@ -80,7 +91,24 @@ function scrollToTop() {
     });
 }
 
+// Change theme functionality
+function themeChangeToggle() {
+  let currentTheme = document.documentElement.getAttribute('data-theme');
+  let newTheme = 'light';
+
+  if (currentTheme !== 'dark') {
+    newTheme = 'dark';
+  }
+
+  // Update UI and remember the choice
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateIcon(newTheme);
+}
+
 // Show/hide scroll to top button
+// PJA:
+/*
 window.addEventListener('scroll', function() {
     const scrollButton = document.querySelector('.scroll-to-top');
     if (window.pageYOffset > 300) {
@@ -88,6 +116,38 @@ window.addEventListener('scroll', function() {
     } else {
         scrollButton.classList.remove('visible');
     }
+});
+*/
+window.addEventListener('scroll', function() {
+  const themeButton = document.querySelector('.theme-change');
+  const moreButton = document.querySelector('.more-works-btn');
+   
+  // Total height of the entire page content
+  // Height of the visible screen window area
+  // The maximum possible scrollable distance
+  // Prevent division by zero errors on short pages
+  // Calculate the final percentage value (0 to 100)
+  const scrolledPixels = window.scrollY;
+  const totalPageHeight = document.documentElement.scrollHeight;
+  const viewportHeight = window.innerHeight;
+  const maxScrollableDistance = totalPageHeight - viewportHeight;
+  if (maxScrollableDistance <= 0) {
+    maxScrollableDistance = 1; 
+  } 
+  const scrollPercentage = (scrolledPixels / maxScrollableDistance) * 100;    
+
+    if (scrollPercentage < 25) {
+        themeButton.classList.add('visible');
+    } else {
+        themeButton.classList.remove('visible');
+    }
+
+    if (scrollPercentage > 75) {
+        moreButton.classList.add('visible');
+    } else {
+        moreButton.classList.remove('visible');
+    }
+
 });
 
 // Video carousel autoplay when in view
