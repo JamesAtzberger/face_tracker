@@ -811,6 +811,25 @@ code {
   }
 }
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color: var(--text-primary);
+}
+
+.table td, th {
+  color: var(--text-primary) !important;
+  border: 1px solid var(--text-primary);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+}
+
 /* Tablet Responsive */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .hero-body {
